@@ -8,8 +8,11 @@ import streamlit as st
 
 st.title("NBA Player Stats Explorer")
 
-st.markdown("This app performs simple webscraping of NBA player stats data!
+st.markdown(
+    """This app performs simple webscraping of NBA player stats data!
 * **Python libraries:** base64, pandas, streamlit
-* **Data source:** [Basketball-reference.com](https://www.basketball-reference.com/).")
+* **Data source:** [Basketball-reference.com](https://www.basketball-reference.com/)."""
+)
 
 st.sidebar.header("User Input Features")
+select_year = st.sidebar.selectbox("Year", list(reversed(range(1950, 2022))))
