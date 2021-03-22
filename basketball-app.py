@@ -38,3 +38,7 @@ players_stats = load_data(selected_year)
 # Sidebar - Team selection
 sorted_unique_team = sorted(players_stats.Tm.unique())
 selected_team = st.sidebar.multiselect("Team", sorted_unique_team, sorted_unique_team)
+
+# Sidebar - Positon player selection
+unique_position = ["C", "PF", "SF", "PG", "SG"]
+select_positon = st.sidebar.multiselect("Position", unique_position, unique_position)
