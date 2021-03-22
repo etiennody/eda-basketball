@@ -9,6 +9,7 @@ pandas = "*"
 matplotlib = "*"
 seaborn = "*"
 numpy = "*"
+lxml = "*"
 
 [dev-packages]
 black = "*"
