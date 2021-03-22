@@ -66,3 +66,16 @@ def file_download(df):
 
 
 st.markdown(file_download(df_selected_team), unsafe_allow_html=True)
+
+# Heatmap
+if st.button("Intercorrelation Heatmap"):
+    st.header("Intercorrelation Heatmap")
+    df_selected_team.to_csv("output.csv", index=False)
+    df = pd.read_csv("output.csv")
+    correlation = df.corr()
+    mask = np.zeros_like(correlation)
+    mask[np.triu_indices_from(mask)] = True
+    with sns.axes_style("white"):
+        fig, ax = plt.subplots(figsize=(7, 5))
+        ax = sns.heatmap(correlation, mask=mask, vmax=1, square=True)
+    st.pyplot(fig)
