@@ -42,3 +42,17 @@ selected_team = st.sidebar.multiselect("Team", sorted_unique_team, sorted_unique
 # Sidebar - Positon player selection
 unique_position = ["C", "PF", "SF", "PG", "SG"]
 select_positon = st.sidebar.multiselect("Position", unique_position, unique_position)
+
+# Filtering data
+df_selected_team = players_stats[
+    (players_stats.Tm.isin(selected_team)) & (players_stats.Pos.isin(select_positon))
+]
+st.header("Display Player Stats of Selected Team(s)")
+st.write(
+    "Data dimensions: "
+    + str(df_selected_team.shape[0])
+    + " rows and "
+    + str(df_selected_team.shape[1])
+    + " columns."
+)
+st.dataframe(df_selected_team)
